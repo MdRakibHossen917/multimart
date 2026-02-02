@@ -1,10 +1,19 @@
 @import "tailwindcss";
 
- 
- @layer components {
+/* :root {
+  --themeColor: #0C55AA;
+  --lightBg: #f4f7f9;
+  --themeWhite: #ffffff;
+  --lightYellow: #FFD43A;
+  --borderColor: #eaebed;
+  --lightText: #55585b;
+} */
+
+
+
+@layer components {
   .headerTopMenu{
     @apply flex items-center gap-x-1 border-r border-r-gray-400 px-4;
-
   }
- }
+}
 

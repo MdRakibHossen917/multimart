@@ -8,7 +8,7 @@ const TopHeader = () => {
       <Container className="flex items-center justify-between ">
         <p className="w-full md:w-auto text-sm flex items-center justify-center md:justify-normal font-medium py-1">
           <FaTruckFast className="mr-1 text-[#f1a129] text-2xl -scale-x-100" /> Free Shipping
-          on Orders Over $50
+          on Orders Over $50+
         </p>
         <div className="hidden md:inline-flex items-center text-sm text-white ">
           <p className="headerTopMenu">

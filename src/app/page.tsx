@@ -1,12 +1,12 @@
-import Header from "@/components/header/Header";
+
 
 
 export default function Home() {
   return (
      
       <main>
-        <Header/>
-       
+
+      <p>Home Page</p>
       </main>
       
   );
