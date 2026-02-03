@@ -45,20 +45,31 @@ const SocialLinks = () => {
   ];
 
   return (
-    <div className="flex items-center gap-4">
-      {linksData?.map((item, index) => (
-        <Link
-          key={index}
-          href={item.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={item.label}
-          className="text-xl text-white/70 hover:text-[#0C55AA] p-2 rounded-full border border-white/20 hover:border-[#0C55AA] cursor-pointer transition"
-        >
-          {item.icon}
-        </Link>
-      ))}
-    </div>
+  <div className="flex items-center gap-3">
+  {linksData.map((item, index) => (
+    <Link
+      key={index}
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={item.label}
+      className="
+        flex items-center justify-center w-10 h-10
+        text-lg text-white/70
+        border border-white/20 rounded-full
+
+        hover:text-[#0C55AA] hover:border-[#0C55AA]
+        active:text-[#0C55AA] active:border-[#0C55AA]
+        focus-visible:text-[#0C55AA] focus-visible:border-[#0C55AA]
+
+        transition-all duration-300
+      "
+    >
+      {item.icon}
+    </Link>
+  ))}
+</div>
+
   );
 };
 

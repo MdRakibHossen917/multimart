@@ -1,5 +1,6 @@
 import logo from "./logo.png";
 import MultiMartLogo from "./MultiMartLogo.png";
-import bannerImageOne from "./watch.jpg";
+import bannerImageWatchOne from "./bannerImageWatchOne.jpg";
 
-export {logo,MultiMartLogo,bannerImageOne}
+
+export {logo,MultiMartLogo,bannerImageWatchOne}

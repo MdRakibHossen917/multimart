@@ -1,11 +1,11 @@
-import Container from "@/components/container/Container";
+import Banner from "@/components/header/Banner";
 
 export default function Home() {
   return (
     <main>
-      <Container>
-        <p>Home Page</p> 
-      </Container>
+     
+      <Banner/>
+       
     </main>
   );
 }

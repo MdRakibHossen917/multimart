@@ -1,3 +1,5 @@
+import { bannerImageWatchOne } from "@/assets/banner";
+
 export const navigation = [
     {title: 'Home', href:'/products'},
     {title: 'Products', href:'/products'},
@@ -6,3 +8,14 @@ export const navigation = [
     {title: 'Blog', href:'/Blog'},
     {title: 'Contact', href:'/Contact'},
 ];
+
+export const banner = {
+    id: "Banner_001",
+    priceText:"Starting at $99.00",
+    title:"The best Watch Collection 2026",
+    textOne:"Exclusive offer",
+    offerPrice:"-25%",
+    textTwo:"Of this Month",
+    buttonLink:"/products",
+    image: bannerImageWatchOne,
+}
