@@ -1,13 +1,11 @@
-
-
+import Container from "@/components/container/Container";
 
 export default function Home() {
   return (
-     
-      <main>
-
-      <p>Home Page</p>
-      </main>
-      
+    <main>
+      <Container>
+        <p>Home Page</p> 
+      </Container>
+    </main>
   );
 }
