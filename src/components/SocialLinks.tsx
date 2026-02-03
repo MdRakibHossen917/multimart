@@ -34,7 +34,7 @@ const SocialLinks = () => {
     },
     {
       icon: <FaYoutube />,
-      href: "#",
+      href: "https://www.youtube.com/channel/UCVzbtrcSmsX5_TWnPXAb_iw",
       label: "YouTube",
     },
     {
