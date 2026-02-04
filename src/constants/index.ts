@@ -6,8 +6,16 @@ export const navigation = [
     {title: 'Categories', href:'/Categories'},
     {title: 'Offers', href:'/Offers'},
     {title: 'Blog', href:'/Blog'},
-    {title: 'Contact', href:'/Contact'},
 ];
+
+export const footerInformation =[
+     {title: 'About', href:'/about'},
+     {title: 'Contact', href:'/contact'},
+     {title: 'Inquiry', href:'/inquiry'},
+     {title: 'FAQs', href:'/faqs'},
+   
+
+]
 
 export const banner = {
     id: "Banner_001",
