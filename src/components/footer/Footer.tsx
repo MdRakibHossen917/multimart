@@ -35,12 +35,12 @@ const Footer = () => {
         </div>
 
         <div>
-          <h3 className='font-semibold mb-3'>Customer Service</h3>
+          <h3 className='font-semibold mb-3'>Information</h3>
           <ul className='space-y-2 text-gray-600'>
-            <li><Link href='/contact'>Contact Us</Link></li>
-            <li><Link href='/faq'>FAQ</Link></li>
-            <li><Link href='/shipping'>Shipping</Link></li>
-            <li><Link href='/returns'>Returns</Link></li>
+            <li><Link href='/about'>About</Link></li>
+            <li><Link href='/contact'>Contact</Link></li>
+            <li><Link href='/inquire'>Inquire</Link></li>
+            <li><Link href='/faqs'>FAQs</Link></li>
           </ul>
         </div>
 
