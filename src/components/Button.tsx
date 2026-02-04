@@ -10,7 +10,7 @@ interface ButtonProps {
 
 }
 
-const Button: React.FC<ButtonProps> = ({ children, className, href, onClick, type = "button" }) => {
+const Button: React.FC<ButtonProps> = ({ children, className, href, onClick}) => {
   const baseClasses =
     "px-6 py-2 bg-[#ffd43a] text-[#115061] font-semibold rounded-md hover:bg-yellow-400 transition cursor-pointer inline-flex items-center gap-1";
 
