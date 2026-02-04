@@ -12,9 +12,9 @@ export const navigation = [
 export const banner = {
     id: "Banner_001",
     priceText:"Starting at $99.00",
-    title:"The best Watch Collection 2026",
+    title:"The best Collections",
     textOne:"Exclusive offer",
-    offerPrice:"-25%",
+    offerPrice:"-40%",
     textTwo:"Of this Month",
     buttonLink:"/products",
     image: bannerImageWatchOne,

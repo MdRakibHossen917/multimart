@@ -15,7 +15,7 @@ const MiddleHeader = () => {
           <Image
             src={MultiMartLogo}
             alt="MultiMartLogo.png"
-            className="w-28 cursor-pointer"
+            className="w-28 cursor-pointer priority"
           />
         </Link>
         <SearchInput />
