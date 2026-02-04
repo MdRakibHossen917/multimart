@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({ children, className, href, onClick}) =>
       {children}
     </Link>
   ) : (
-    <button type={type} onClick={onClick} className={twMerge(baseClasses, className)}>
+    <button   onClick={onClick} className={twMerge(baseClasses, className)}>
       {children}
     </button>
   );
