@@ -24,12 +24,13 @@ const Footer = () => {
 
         {/* Placeholder for other footer sections */}
         <div>
-          <h3 className='font-semibold mb-3'>Quick Links</h3>
+          <h3 className='font-semibold mb-3'>My Account</h3>
           <ul className='space-y-2 text-gray-600'>
+            <li><Link href='/'>Home</Link></li>
             <li><Link href='/products'>Products</Link></li>
             <li><Link href='/categories'>Categories</Link></li>
             <li><Link href='/offers'>Offers</Link></li>
-            <li><Link href='/blog'>Blog</Link></li>
+         
           </ul>
         </div>
 
