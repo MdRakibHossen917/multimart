@@ -2,11 +2,12 @@ import React from "react";
 import Container from "../container/Container";
 import Link from "next/link";
 import Image from "next/image";
-import { logo } from "@/assets/banner";
+import { MultiMartLogo } from "@/assets/banner";
 import SocialLinks from "../SocialLinks";
-import Title from "./Title";
+ 
 import { footerInformation, navigation } from "@/constants";
 import { GoDotFill } from "react-icons/go";
+import Title from "../Title";
 
 const Footer = () => {
   return (
@@ -15,13 +16,13 @@ const Footer = () => {
         {/* Logo & Description */}
         <div className="flex flex-col gap-4">
           <Link href="/" className="flex flex-col gap-2">
-            <Image src={logo} alt="MultiMart Logo" width={150} height={50} />
+            <Image src={MultiMartLogo} alt="MultiMart Logo" width={150} height={50} />
           </Link>
           <p className="text-gray-600">
             MultiMart is your one-stop shop for quality products at the best
             prices.
           </p>
-          <SocialLinks iconStyle="bg-[#ffffff]  border border-[#0C55AA] shadow-md text-black p-2 text-lg hover:bg-[#0C55AA] hover:text-[#ffffff] cursor-pointer duration-200 rounded-md" />
+          <SocialLinks iconStyle="bg-[#ffffff]  border border-[#115061] shadow-md text-black p-2 text-lg hover:bg-[#115061] hover:text-[#ffffff] cursor-pointer duration-200 rounded-md" />
         </div>
 <div>
   
@@ -33,7 +34,7 @@ const Footer = () => {
             <li key={item.title}>
               <Link
                 href={item.href}
-                className="flex items-center gap-x-2 text-gray-700 hover:text-[#0C55AA] duration-200 font-medium"
+                className="flex items-center gap-x-2 text-gray-700 hover:text-[#115061] duration-200 font-medium"
               >
                 <GoDotFill size={10} />
                 {item.title}
@@ -50,7 +51,7 @@ const Footer = () => {
             <li key={item.title}>
               <Link
                 href={item.href}
-                className="flex items-center gap-x-2 text-gray-700 hover:text-[#0C55AA] duration-200 font-medium"
+                className="flex items-center gap-x-2 text-gray-700 hover:text-[#115061] duration-200 font-medium"
               >
                 <GoDotFill size={10} />
                 {item.title}
@@ -73,7 +74,7 @@ const Footer = () => {
             />
             <button
               type="submit"
-              className="bg-blue-600 text-white px-2 rounded-md text-xs"
+              className="bg-[#115061] text-white px-2 rounded-md text-xs"
             >
               Subscribe
             </button>

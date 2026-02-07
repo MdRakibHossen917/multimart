@@ -1,7 +1,7 @@
 import { bannerImageWatchOne } from "@/assets/banner";
 
 export const navigation = [
-    {title: 'Home', href:'/products'},
+    {title: 'Home', href:'/'},
     {title: 'Products', href:'/products'},
     {title: 'Categories', href:'/Categories'},
     {title: 'Offers', href:'/Offers'},
