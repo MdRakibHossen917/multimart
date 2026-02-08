@@ -18,7 +18,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
 
       {/* Image */}
       <Link href={`/products/${product.id}`}>
-        <div className="relative h-60 w-full overflow-hidden rounded-lg bg-gray-50">
+        <div className="relative h-40 md:h-64 w-full overflow-hidden rounded-lg bg-gray-50">
           <Image
             src={product.images[0]}
             alt={product.title}
