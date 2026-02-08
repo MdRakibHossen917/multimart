@@ -1,17 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ProductType } from '../../type';
+import Sidebar from './Sidebar';
 
 const ProductCard = ({ product }: { product: ProductType }) => {
   const discountedPrice =
     product.price - (product.price * product.discountPercentage) / 100;
 
   return (
-    <div className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-3 transition-all duration-300  hover:shadow-xl hover:shadow-black/20">
+    <div className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-2 transition-all duration-300  hover:shadow-xl hover:shadow-black/20">
       
       {/* Discount badge */}
       {product.discountPercentage > 0 && (
-        <span className="absolute left-3 top-3 z-10 rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
+        <span className="absolute left-2 top-2 z-10 rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
           -{product.discountPercentage.toFixed(0)}%
         </span>
       )}
@@ -28,6 +29,10 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           />
         </div>
       </Link>
+
+      {/* Sidebar */}
+
+      <Sidebar/>
 
       {/* Content */}
       <div className="mt-2 md:mt-3 space-y-1">
