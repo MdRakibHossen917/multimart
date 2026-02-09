@@ -17,3 +17,13 @@
   }
 }
 
+ 
+@layer components {
+  .payment-logo {
+    @apply rounded border border-gray-300 grayscale opacity-70 transition-all duration-200;
+  }
+
+  .payment-logo:hover {
+    @apply grayscale-0 opacity-100 scale-105;
+  }
+}

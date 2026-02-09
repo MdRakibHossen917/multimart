@@ -1,29 +1,27 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { ProductType } from '../../type';
-import Sidebar from './Sidebar';
+import Image from "next/image";
+import Link from "next/link";
+import { ProductType } from "../../type";
+import Sidebar from "./Sidebar";
+import ProductPrice from "./ProductPrice";
+import AddToCartButton from "./AddToCartButton";
 
 const ProductCard = ({ product }: { product: ProductType }) => {
-  const discountedPrice =
-    product.price - (product.price * product.discountPercentage) / 100;
-
   return (
     <div className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-2 transition-all duration-300  hover:shadow-xl hover:shadow-black/20">
-      
-      {/* Discount badge */}
-      {product.discountPercentage > 0 && (
-        <span className="absolute left-2 top-2 z-10 rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
-          -{product.discountPercentage.toFixed(0)}%
-        </span>
-      )}
-
-      {/* Image */}
-      <Link href={`/products/${product.id}`}>
+      <Link
+        href={{
+          pathname: `products/${product?.id}`,
+          query: { id: product?.id },
+        }}
+      >
         <div className="relative h-40 md:h-64 w-full overflow-hidden rounded-lg bg-gray-50">
+          {/* Image */}
           <Image
-            src={product.images[0]}
-            alt={product.title}
-            fill
+            src={product?.images[0]}
+            alt={"product-image"}
+            width={500}
+            height={500}
+            priority={true}
             sizes="(max-width: 768px) 100vw, 25vw"
             className="object-contain transition-transform duration-500 group-hover:scale-110"
           />
@@ -32,7 +30,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
 
       {/* Sidebar */}
 
-      <Sidebar/>
+      <Sidebar />
 
       {/* Content */}
       <div className="mt-2 md:mt-3 space-y-1">
@@ -45,17 +43,10 @@ const ProductCard = ({ product }: { product: ProductType }) => {
         </h3>
 
         {/* Price */}
-        <div className="flex items-center gap-2">
-          <span className="text-lg font-bold text-gray-900">
-            ${discountedPrice.toFixed(2)}
-          </span>
-
-          {product.discountPercentage > 0 && (
-            <span className="text-sm text-gray-400 line-through">
-              ${product.price}
-            </span>
-          )}
-        </div>
+        <ProductPrice product={product} />
+      </div>
+      <div>
+        <AddToCartButton product={product} />
       </div>
     </div>
   );
