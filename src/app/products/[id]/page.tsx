@@ -28,13 +28,13 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
 
         {/* Product Details */}
         <div>
-          <h2 className="text-3xl font-bold mb-3">{product.title}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">{product.title}</h2>
 
           {/* Price + Rating */}
           <div className="flex items-center justify-between gap-4">
-            <ProductPrice product={product} />
+            <ProductPrice  product={product} />
 
-            <div className="flex items-center gap-1 text-yellow-500">
+            <div className="flex items-center md:gap-1 text-yellow-500">
               {Array.from({ length: 5 }).map((_, index) => {
                 const rating = product.rating;
                 let starClass = "text-gray-300";
@@ -107,14 +107,14 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
           <AddToCartButton product={product} />
 
           {/* Payment Logos */}
-          <div className="my-3 flex items-center gap-3">
+          <div className="my-3 flex items-center justify-center  md:justify-start    gap-2 md:gap-3  ">
             {[bKash, nagad, visa, masterCard].map((img, idx) => (
               <Image
                 key={idx}
                 src={img}
                 alt="payment method"
-                width={80}
-                height={40}
+                width={60}
+                height={35}
                 className="payment-logo payment-logo-hover"
               />
             ))}
@@ -122,17 +122,17 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
         </div>
       </div>
 
+  
       {/* Product Reviews */}
-      {/* Product Reviews */}
-<div className="my-10 p-10 bg-[#f7f7f7] md:col-span-2">
+<div className="my-6 md:my-10 p-2 md:p-10 bg-[#f7f7f7] md:col-span-2">
   <h3 className="text-2xl font-semibold mb-6">Customer Reviews</h3>
 
   {product.reviews && product.reviews.length > 0 ? (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-6">
       {product.reviews.map((review, index) => (
         <div
           key={index}
-          className="p-4 bg-white/20 border border-amazoneDark/50 rounded-md hover:border-amazoneDark hover:bg-white duration-200 flex flex-col gap-2"
+          className="p-2 md:p-4 bg-white/20 border border-amazoneDark/50 rounded-md hover:border-amazoneDark hover:bg-white duration-200 flex flex-col gap-2"
         >
           {/* Reviewer Info */}
           <div className="flex flex-col gap-1">
@@ -142,10 +142,10 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
           </div>
 
           {/* Comment */}
-          <p className="text-gray-700 mt-2">{review.comment}</p>
+          <p className="text-gray-700 mt-1 md:mt-2">{review.comment}</p>
 
           {/* Rating */}
-          <div className="flex items-center text-yellow-500 mt-2">
+          <div className="flex items-center text-yellow-500 mt-1 md:mt-2">
             {Array.from({ length: 5 }).map((_, i) => (
               <MdStar
                 key={i}
