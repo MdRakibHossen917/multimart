@@ -4,7 +4,7 @@ import { ProductType, StateType } from "../../type";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToCart,
-  DecreaseQuantity,
+  decreaseQuantity,
   increaseQuantity,
 } from "@/redux/multimartSlice";
 import { toast } from "react-hot-toast";
@@ -41,7 +41,7 @@ const AddToCartButton = ({ product }: AddToCartButtonProps) => {
         <div className="flex items-center gap-2 py-2 mb-2">
           <button
             onClick={() => {
-              dispatch(DecreaseQuantity(product.id));
+              dispatch(decreaseQuantity(product.id));
               toast.success("Quantity decreased");
             }}
             disabled={existingProduct.quantity! <= 1}

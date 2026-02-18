@@ -28,9 +28,9 @@ const ProductCard = ({ product }: { product: ProductType }) => {
         </div>
       </Link>
 
-      {/* Sidebar */}
+      {/* Sidebar  */}
 
-      <Sidebar />
+      <Sidebar product={product} />
 
       {/* Content */}
       <div className="mt-2 md:mt-3 space-y-1">
