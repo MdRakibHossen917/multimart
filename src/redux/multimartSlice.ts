@@ -33,9 +33,31 @@ export const multimartSlice = createSlice({
         });
       }
 
+     
+
+      
+
     },
+     increaseQuantity:(state, action)=>{
+        const existingProduct = state?.cart?.find(
+          (item) => item?.id === action?.payload
+        );
+
+        if(existingProduct){
+          existingProduct.quantity! += 1;
+        }
+      },
+       DecreaseQuantity:(state, action)=>{
+        const existingProduct = state?.cart?.find(
+          (item) => item?.id === action?.payload
+        );
+
+        if(existingProduct){
+          existingProduct.quantity! -= 1;
+        }
+      }
   },
 });
 
-export const { addToCart } = multimartSlice.actions;
+export const { addToCart, increaseQuantity, DecreaseQuantity } = multimartSlice.actions;
 export default multimartSlice.reducer;
