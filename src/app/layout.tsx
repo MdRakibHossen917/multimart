@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
+import Layout from "@/components/Layout";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,8 +18,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "MultiMart - Multipurpose E-Commerce Website",
- description: "MultiMart is a fully responsive multipurpose e-commerce website featuring product browsing, cart management, and a seamless checkout experience built with modern web technologies."
-
+  description:
+    "MultiMart is a fully responsive multipurpose e-commerce website featuring product browsing, cart management, and a seamless checkout experience built with modern web technologies.",
 };
 
 export default function RootLayout({
@@ -30,9 +32,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-                <Header/>
-        {children}
-        <Footer/>
+        <Layout>
+          <Header />
+          {children}
+          <Footer />
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              duration: 3000,
+              style: { background: "#115061", color: "#fff" },
+            }}
+          />
+        </Layout>
       </body>
     </html>
   );

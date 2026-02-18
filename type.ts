@@ -53,10 +53,10 @@
 }
 export interface StateType {
     multimart:{
-         products: ProductType[];
-  total: number;
-  skip: number;
-  limit: number;
+      cart: ProductType[];
+      favorite: ProductType[];
+      userInfo: any;
+        
 
     }
  
