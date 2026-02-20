@@ -31,7 +31,7 @@ const CartProducts = () => {
           </div>
         </section>
         {/* cart summary */}
-        <CartSummary/>
+        <CartSummary cart={cart}  />
       </div>
     </div>
   );

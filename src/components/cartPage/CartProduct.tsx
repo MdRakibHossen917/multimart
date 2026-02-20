@@ -71,10 +71,16 @@ const CartProduct = ({ product }: { product: ProductType }) => {
               <span>In Stock</span>
             </p>
           )}
-          <p>You are saving <PriceFormat amount =
-          {
-            product?.price * (product?.discountPercentage / 100) * product.quantity!
-          } /></p>
+          <p>
+            You are saving {''}
+            <PriceFormat className="text-green-500 font-bold"
+              amount={
+                product?.price *
+                (product?.discountPercentage / 100) *
+                product.quantity!
+              }
+            />
+          </p>
         </div>
       </div>
 
