@@ -42,7 +42,7 @@ const Banner = () => {
               width={400}
               height={400}
               priority
-              className="w-[280px] md:w-[400px] h-auto object-contain"
+              className="w-[220px] md:w-[400px] h-auto object-contain"
             />
           </div>
         </div>

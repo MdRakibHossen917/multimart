@@ -3,6 +3,7 @@ import Title from "../Title";
 import PriceFormat from "../PriceFormat";
 import { ProductType } from "../../../type";
 import Button from "../Button";
+import toast from "react-hot-toast";
 
 interface CartSummaryProps {
   cart: ProductType[];
@@ -14,7 +15,7 @@ const CartSummary = ({ cart }: CartSummaryProps) => {
 
 
   const handleCheckout = () => {
-    alert("Checkout functionality is not implemented yet.");
+     toast.success("Checkout coming soon!");
   };
 
   useEffect(() => {
