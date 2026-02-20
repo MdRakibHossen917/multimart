@@ -1,67 +1,95 @@
-'use client'
-import Link from 'next/link';
-import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-import { RiCloseLine, RiSearchLine } from 'react-icons/ri';
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import React, { useEffect, useRef, useState } from "react";
+import { RiCloseLine, RiSearchLine } from "react-icons/ri";
 
 interface ProductType {
   id: number;
   title: string;
   thumbnail: string;
-  price: number; 
+  price: number;
 }
 
 const SearchInput = () => {
   const [search, setSearch] = useState("");
-  const [products, setProducts] = useState<ProductType[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState(false);
+  const [isInputFocused, setIsInputFocused] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
-  // 🔥 Debounce State
+  // Debounce
   const [debouncedSearch, setDebouncedSearch] = useState("");
-
-  // Debounce Effect (300ms delay)
   useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedSearch(search);
-    }, 300);
-
+    const handler = setTimeout(() => setDebouncedSearch(search), 300);
     return () => clearTimeout(handler);
   }, [search]);
 
-  // Fetch & Filter from API
+  // Fetch API
   useEffect(() => {
     if (!debouncedSearch) {
       setFilteredProducts([]);
       return;
     }
-
     const fetchProducts = async () => {
       try {
         setLoading(true);
         const res = await fetch(
-          `https://dummyjson.com/products/search?q=${debouncedSearch}`
+          `https://dummyjson.com/products/search?q=${debouncedSearch}`,
         );
         const data = await res.json();
         setFilteredProducts(data?.products || []);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error(error);
       } finally {
         setLoading(false);
       }
     };
-
     fetchProducts();
   }, [debouncedSearch]);
 
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(e.target as Node)
+      ) {
+        setIsInputFocused(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Highlight matched letters
+  const highlightMatch = (text: string) => {
+    if (!debouncedSearch) return text;
+    const regex = new RegExp(`(${debouncedSearch})`, "gi");
+    const parts = text.split(regex);
+    return parts.map((part, idx) =>
+      regex.test(part) ? (
+        <span key={idx} className="bg-yellow-200">
+          {part}
+        </span>
+      ) : (
+        <span key={idx}>{part}</span>
+      ),
+    );
+  };
+
   return (
-    <div className="hidden md:inline-flex flex-1 relative h-10">
+    <div
+      ref={searchContainerRef}
+      className="hidden md:inline-flex flex-1 relative h-10"
+    >
       <input
         type="text"
         placeholder="Search Products here"
         className="w-full h-full border-2 border-[#115061] px-4 outline-none rounded-md"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        onFocus={() => setIsInputFocused(true)}
       />
 
       {search && (
@@ -71,23 +99,17 @@ const SearchInput = () => {
         />
       )}
 
-      <span>
-        <RiSearchLine className="w-10 h-10 inline-flex bg-[#115061] text-white items-center justify-center p-2 absolute top-0 right-0 cursor-pointer duration-200 rounded-r-md" />
-      </span>
+      <RiSearchLine className="w-10 h-10 bg-[#115061] text-white p-2 absolute top-0 right-0 rounded-r-md" />
 
       {/* Dropdown */}
-      {search && (
+      {isInputFocused && search && (
         <div className="absolute top-12 left-0 w-full bg-white shadow-lg border rounded-md max-h-80 overflow-y-auto z-50">
-          
-          {/* Loading */}
           {loading && (
-            <div className="px-4 py-3 text-sm text-gray-500">
-              Searching...
-            </div>
+            <div className="px-4 py-3 text-sm text-gray-500">Searching...</div>
           )}
 
-          {/* Results */}
-          {!loading && filteredProducts.length > 0 && (
+          {!loading &&
+            filteredProducts.length > 0 &&
             filteredProducts.slice(0, 10).map((item) => (
               <Link
                 key={item.id}
@@ -105,9 +127,9 @@ const SearchInput = () => {
                   />
                 </div>
 
-                {/* Middle Title */}
+                {/* Middle Title with highlighted match */}
                 <span className="flex-1 text-sm font-medium line-clamp-1 text-black">
-                  {item.title}
+                  {highlightMatch(item.title)}
                 </span>
 
                 {/* Right Price */}
@@ -115,11 +137,9 @@ const SearchInput = () => {
                   ${item.price}
                 </span>
               </Link>
-            ))
-          )}
+            ))}
 
-          {/* No Result */}
-          {!loading && debouncedSearch && filteredProducts.length === 0 && (
+          {!loading && filteredProducts.length === 0 && (
             <div className="px-4 py-3 text-sm text-gray-500">
               No products found
             </div>
