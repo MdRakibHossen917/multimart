@@ -14,11 +14,11 @@ const nextConfig: NextConfig = {
       },
        {
         protocol:"https",
-        hostname:"Ih3.googleusercontent.com",
+        hostname:"lh3.googleusercontent.com",
       },
        {
         protocol:"https",
-        hostname:"i.ibb.co.com",
+        hostname:"i.ibb.co",
       },
 
     ]

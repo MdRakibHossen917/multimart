@@ -13,16 +13,18 @@ const SignInButton = () => {
       {session?.user ? (
         <div className="flex items-center gap-2 text-sm">
           <Image
-            src={session?.user?.image || "/default-avatar.png"}
-            alt='User Image'
+            src={session.user.image || "/default-avatar.png"}
+            alt="User Image"
             width={40}
             height={40}
             className="rounded-full object-cover"
           />
           <div>
-            <p className="text-xs">{session.user.name}</p>
+            <p className="text-xs">
+              {session.user.name || "User"}
+            </p>
             <button
-              onClick={() => signOut()}
+              onClick={() => signOut({ callbackUrl: "/" })}
               className="font-medium hover:underline cursor-pointer text-red-600"
             >
               Sign Out
@@ -39,7 +41,7 @@ const SignInButton = () => {
           </div>
           <div>
             <p className="text-xs">Hello, Guest</p>
-            <p className="font-medium">Login / Register</p>
+            <p className="font-medium">Signin / Register</p>
           </div>
         </div>
       )}
