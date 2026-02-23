@@ -1,9 +1,11 @@
-import React from 'react'
+'use client';
+import { signIn } from 'next-auth/react'
 import { LiaUser } from 'react-icons/lia'
 
 const SignInButton = () => {
   return (
     <div
+    onClick={()=>signIn()}
       className="flex items-center gap-2 cursor-pointer text-sm"
     >
       <div className="border-b border-gray-700 p-1.5 rounded-full text-xl">
