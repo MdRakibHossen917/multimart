@@ -3,9 +3,10 @@ import Container from '@/components/container/Container'
 import { getServerSession } from 'next-auth/next';
 import { redirect } from 'next/navigation';
 import React from 'react'
+import { authOptions } from '@/lib/auth';
 
 const CartPage = async () => {
-    const session = await getServerSession();
+    const session = await getServerSession(authOptions);
     if(!session?.user){
       redirect("/")
     }
