@@ -1,38 +1,22 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import googleProvider from "next-auth/providers/google";
-import { NextAuthOptions } from "next-auth";
 
-const githubId = process.env.GITHUB_ID;
-const githubSecret = process.env.GITHUB_SECRET;
-const googleClientId = process.env.GOOGLE_CLIENT_ID || process.env.GOOGLE_ID;
-const googleClientSecret =
-  process.env.GOOGLE_CLIENT_SECRET || process.env.GOOGLE_SECRET;
 
-const providers: NextAuthOptions["providers"] = [];
-
-if (githubId && githubSecret) {
-  providers.push(
+export const authOptions = {
+  // Configure one or more authentication providers
+  providers: [
     GithubProvider({
-      clientId: githubId,
-      clientSecret: githubSecret,
+      clientId: process.env.GITHUB_ID!,
+      clientSecret: process.env.GITHUB_SECRET!,
     }),
-  );
-}
 
-if (googleClientId && googleClientSecret) {
-  providers.push(
     googleProvider({
-      clientId: googleClientId,
-      clientSecret: googleClientSecret,
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_SECRET!,
     }),
-  );
-}
-
-export const authOptions: NextAuthOptions = {
-  providers,
-  secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
-
+   
+  ],
 };
 
 const handler = NextAuth(authOptions);
