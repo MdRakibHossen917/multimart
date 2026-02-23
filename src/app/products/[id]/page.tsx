@@ -9,6 +9,7 @@ import PriceFormat from "@/components/PriceFormat";
 import AddToCartButton from "@/components/AddToCartButton";
 import Image from "next/image";
 import { bKash, masterCard, nagad, visa } from "@/assets/banner";
+import { notFound } from "next/navigation";
 
 interface SingleProductPageProps {
   params: Promise<{ id: string }>;
@@ -18,7 +19,11 @@ const SingleProductPage = async ({ params }: SingleProductPageProps) => {
   const { id } = await params;
 
   const endpoint = `https://dummyjson.com/products/${id}`;
-  const product: ProductType = await getData(endpoint);
+  const product: ProductType | null = await getData(endpoint);
+
+  if (!product) {
+    notFound();
+  }
 
   return (
     <Container className="py-10">

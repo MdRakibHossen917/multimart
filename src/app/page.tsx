@@ -9,7 +9,7 @@ import { getData } from "@/helpers";
 export default async function Home() {
    const endpoint = 'https://dummyjson.com/products';
    const data = await getData (endpoint);
-  const products = data.products;
+  const products = data?.products ?? [];
   // console.log(products)
 
   return (
