@@ -3,10 +3,12 @@ import Container from "../container/Container";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import SignOut from "../SignOut";
-import { authOptions } from "@/lib/auth";
+import { authOptions, isAuthConfigured } from "@/lib/auth";
 
 const BottomHeader = async () => {
-  const session = await getServerSession(authOptions);
+  const session = isAuthConfigured
+    ? await getServerSession(authOptions)
+    : null;
   // console.log(session);
 
   return (

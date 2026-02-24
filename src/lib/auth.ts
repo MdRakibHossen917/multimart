@@ -7,6 +7,7 @@ const githubSecret = process.env.GITHUB_SECRET;
 const googleClientId = process.env.GOOGLE_CLIENT_ID || process.env.GOOGLE_ID;
 const googleClientSecret =
   process.env.GOOGLE_CLIENT_SECRET || process.env.GOOGLE_SECRET;
+const authSecret = process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET;
 
 const providers: NextAuthOptions["providers"] = [];
 
@@ -30,5 +31,7 @@ if (googleClientId && googleClientSecret) {
 
 export const authOptions: NextAuthOptions = {
   providers,
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: authSecret,
 };
+
+export const isAuthConfigured = Boolean(authSecret) && providers.length > 0;
