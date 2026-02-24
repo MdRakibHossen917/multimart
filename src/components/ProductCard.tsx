@@ -10,7 +10,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
     <div className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white p-2 transition-all duration-300  hover:shadow-xl hover:shadow-black/20">
       <Link
         href={{
-          pathname: `products/${product?.id}`,
+          pathname: `/products/${product?.id}`,
           query: { id: product?.id },
         }}
       >
