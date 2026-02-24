@@ -31,5 +31,4 @@ if (googleClientId && googleClientSecret) {
 export const authOptions: NextAuthOptions = {
   providers,
   secret: process.env.NEXTAUTH_SECRET,
-  trustHost: true,
 };
