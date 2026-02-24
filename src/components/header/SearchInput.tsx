@@ -105,7 +105,7 @@ const SearchInput = () => {
       {isInputFocused && search && (
         <div className="absolute top-12 left-0 w-full bg-white shadow-lg border rounded-md max-h-80 overflow-y-auto z-50">
           {loading && (
-            <div className="px-4 py-3 text-sm text-gray-500">Searching...</div>
+            <div className="All Products py-3 text-sm text-gray-500">Searching...</div>
           )}
 
           {!loading &&

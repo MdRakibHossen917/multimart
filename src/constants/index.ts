@@ -5,7 +5,6 @@ export const navigation = [
     {title: 'Products', href:'/products'},
     {title: 'Categories', href:'/Categories'},
     {title: 'Offers', href:'/Offers'},
-    {title: 'Blog', href:'/Blog'},
 ];
 
 export const footerInformation =[

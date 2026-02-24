@@ -31,8 +31,8 @@ const BottomHeader = async () => {
             {session?.user ? (
               <SignOut />
             ) : (
-              <p className="text-gray-500 hover:text-blue-600 duration-200">
-                Signin to your view cart
+              <p className="text-gray-500 duration-200">
+                SignIn to your view cart
               </p>
             )}
           </div>
